@@ -1,10 +1,9 @@
 interface pokemonList {
-  firstPokemon: string | undefined,
-  secondPokemon: string | undefined,
-  thirdPokemon: string | undefined,
-  fourthPokemon: string | undefined,
-  fifthPokemon: string | undefined,
-  sixthPokemon: string | undefined
+  name: string | undefined,
+  id: number | null,
+  url: string | undefined,
+  width: number | null,
+  height: number | null
 }
 
 export default pokemonList;

@@ -1,18 +1,18 @@
 "use client";
 import Image from "next/image";
-import pokemonlist from "../../_mocks/pokemonList.json";
-import pokemonTrainerList from "../../_mocks/pokemonTrainerList.json";
+import pokemonlistData from "../../_mocks/pokemonList.json";
 import { useState } from "react";
 import pokemonList from "@/services/models/PokemonList";
+import selectedPokemons from "@/services/models/SelectedPokemons";
 
 export default function PokemonList() {
-  const emptyList: pokemonList = {
-    firstPokemon: undefined,
-    secondPokemon: undefined,
-    thirdPokemon: undefined,
-    fourthPokemon: undefined,
-    fifthPokemon: undefined,
-    sixthPokemon: undefined,
+  const emptyList: selectedPokemons = {
+    firstPokemon: null,
+    secondPokemon: null,
+    thirdPokemon: null,
+    fourthPokemon: null,
+    fifthPokemon: null,
+    sixthPokemon: null,
   };
   const [pokemonSelected, setPokemonSelected] = useState(emptyList);
   const [selected, setSelected] = useState<string | undefined>(undefined);
@@ -26,7 +26,7 @@ export default function PokemonList() {
       [key]: value,
     }));
   }
-  console.log("--->", pokemonSelected);
+
   return (
     <div className="flex items-center justify-center flex-col">
       Pokemon List
@@ -41,7 +41,7 @@ export default function PokemonList() {
         </div>
         Pokemon List Choose 6 Pokémons for you team
         <section className="mt-2 grid grid-cols-6 gap-4 justify-items-center">
-          {pokemonlist.map((inside: any) => {
+          {pokemonlistData.map((inside: pokemonList) => {
             return (
               <div key={`context-poke-${inside.id}`}>
                 <div
@@ -49,10 +49,10 @@ export default function PokemonList() {
                   className="rounded-md shadow-md bg-gray-300 w-32 h-32 flex items-center justify-center "
                 >
                   <Image
-                    src={inside.url}
+                    src={inside.url || ""}
                     alt="Bulbasaur animeted gif"
-                    width={inside.width}
-                    height={inside.height}
+                    width={inside.width || 0}
+                    height={inside.height || 0}
                   />
                 </div>
                 <button onClick={() => updateList(`${selected}`, inside.id)}>
@@ -64,41 +64,89 @@ export default function PokemonList() {
         </section>
       </div>
       <section className="mt-2 grid grid-cols-6 gap-6 ">
-        <div
-          key={`first-pokemon`}
-          className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
-        >
-          <button onClick={() => setSelected("firstPokemon")}>Set</button>
+        <div>
+          <div
+            key={`first-pokemon`}
+            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+          >
+            {pokemonSelected?.firstPokemon}
+          </div>
+          <button
+            className="text-stone-900"
+            onClick={() => setSelected("firstPokemon")}
+          >
+            Set
+          </button>
         </div>
-        <div
-          key={`second-pokemon`}
-          className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
-        >
-          <button onClick={() => setSelected("secondPokemon")}>Set</button>
+        <div>
+          <div
+            key={`second-pokemon`}
+            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+          >
+            {pokemonSelected?.secondPokemon}
+          </div>
+          <button
+            className="text-stone-900"
+            onClick={() => setSelected("secondPokemon")}
+          >
+            Set
+          </button>
         </div>
-        <div
-          key={`third-pokemon`}
-          className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
-        >
-          <button onClick={() => setSelected("thirdPokemon")}>Set</button>
+        <div>
+          <div
+            key={`third-pokemon`}
+            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+          >
+            {pokemonSelected?.thirdPokemon}
+          </div>
+          <button
+            className="text-stone-900"
+            onClick={() => setSelected("thirdPokemon")}
+          >
+            Set
+          </button>
         </div>
-        <div
-          key={`fourth-pokemon`}
-          className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
-        >
-          <button onClick={() => setSelected("fourthPokemon")}>Set</button>
+        <div>
+          <div
+            key={`fourth-pokemon`}
+            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+          >
+            {pokemonSelected?.fourthPokemon}
+          </div>
+          <button
+            className="text-stone-900"
+            onClick={() => setSelected("fourthPokemon")}
+          >
+            Set
+          </button>
         </div>
-        <div
-          key={`fifth-pokemon`}
-          className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
-        >
-          <button onClick={() => setSelected("fifthPokemon")}>Set</button>
+        <div>
+          <div
+            key={`fifth-pokemon`}
+            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+          >
+            {pokemonSelected?.fifthPokemon}
+          </div>
+          <button
+            className="text-stone-900"
+            onClick={() => setSelected("fifthPokemon")}
+          >
+            Set
+          </button>
         </div>
-        <div
-          key={`sixth-pokemon`}
-          className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
-        >
-          <button onClick={() => setSelected("sixthPokemon")}>Set</button>
+        <div>
+          <div
+            key={`sixth-pokemon`}
+            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+          >
+            {pokemonSelected?.sixthPokemon}
+          </div>
+          <button
+            className="text-stone-900"
+            onClick={() => setSelected("sixthPokemon")}
+          >
+            Set
+          </button>
         </div>
       </section>
       {/* <section className="mt-2 grid grid-cols-6 gap-6 ">
