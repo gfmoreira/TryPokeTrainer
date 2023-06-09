@@ -7,12 +7,12 @@ import selectedPokemons from "@/services/models/SelectedPokemons";
 
 export default function PokemonList() {
   const emptyList: selectedPokemons = {
-    firstPokemon: null,
-    secondPokemon: null,
-    thirdPokemon: null,
-    fourthPokemon: null,
-    fifthPokemon: null,
-    sixthPokemon: null,
+    firstPokemon: undefined,
+    secondPokemon: undefined,
+    thirdPokemon: undefined,
+    fourthPokemon: undefined,
+    fifthPokemon: undefined,
+    sixthPokemon: undefined,
   };
   const [pokemonSelected, setPokemonSelected] = useState(emptyList);
   const [selected, setSelected] = useState<string | undefined>(undefined);
@@ -26,7 +26,7 @@ export default function PokemonList() {
       [key]: value,
     }));
   }
-
+  console.log(pokemonSelected);
   return (
     <div className="flex items-center justify-center flex-col">
       Pokemon List
@@ -55,7 +55,7 @@ export default function PokemonList() {
                     height={inside.height || 0}
                   />
                 </div>
-                <button onClick={() => updateList(`${selected}`, inside.id)}>
+                <button onClick={() => updateList(`${selected}`, inside)}>
                   Add
                 </button>
               </div>
@@ -69,7 +69,12 @@ export default function PokemonList() {
             key={`first-pokemon`}
             className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
           >
-            {pokemonSelected?.firstPokemon}
+            <Image
+              src={pokemonSelected?.firstPokemon?.url || ""}
+              alt="Bulbasaur animeted gif"
+              width={pokemonSelected?.firstPokemon?.width || 0}
+              height={pokemonSelected?.firstPokemon?.height || 0}
+            />
           </div>
           <button
             className="text-stone-900"
@@ -83,7 +88,12 @@ export default function PokemonList() {
             key={`second-pokemon`}
             className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
           >
-            {pokemonSelected?.secondPokemon}
+            <Image
+              src={pokemonSelected?.secondPokemon?.url || ""}
+              alt="Bulbasaur animeted gif"
+              width={pokemonSelected?.secondPokemon?.width || 0}
+              height={pokemonSelected?.secondPokemon?.height || 0}
+            />
           </div>
           <button
             className="text-stone-900"
@@ -97,7 +107,12 @@ export default function PokemonList() {
             key={`third-pokemon`}
             className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
           >
-            {pokemonSelected?.thirdPokemon}
+            <Image
+              src={pokemonSelected?.thirdPokemon?.url || ""}
+              alt="Bulbasaur animeted gif"
+              width={pokemonSelected?.thirdPokemon?.width || 0}
+              height={pokemonSelected?.thirdPokemon?.height || 0}
+            />
           </div>
           <button
             className="text-stone-900"
@@ -111,7 +126,12 @@ export default function PokemonList() {
             key={`fourth-pokemon`}
             className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
           >
-            {pokemonSelected?.fourthPokemon}
+            <Image
+              src={pokemonSelected?.fourthPokemon?.url || ""}
+              alt="Bulbasaur animeted gif"
+              width={pokemonSelected?.fourthPokemon?.width || 0}
+              height={pokemonSelected?.fourthPokemon?.height || 0}
+            />
           </div>
           <button
             className="text-stone-900"
@@ -125,7 +145,12 @@ export default function PokemonList() {
             key={`fifth-pokemon`}
             className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
           >
-            {pokemonSelected?.fifthPokemon}
+            <Image
+              src={pokemonSelected?.fifthPokemon?.url || ""}
+              alt="Bulbasaur animeted gif"
+              width={pokemonSelected?.fifthPokemon?.width || 0}
+              height={pokemonSelected?.fifthPokemon?.height || 0}
+            />
           </div>
           <button
             className="text-stone-900"
@@ -139,7 +164,12 @@ export default function PokemonList() {
             key={`sixth-pokemon`}
             className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
           >
-            {pokemonSelected?.sixthPokemon}
+            <Image
+              src={pokemonSelected?.sixthPokemon?.url || ""}
+              alt="Bulbasaur animeted gif"
+              width={pokemonSelected?.sixthPokemon?.width || 0}
+              height={pokemonSelected?.sixthPokemon?.height || 0}
+            />
           </div>
           <button
             className="text-stone-900"

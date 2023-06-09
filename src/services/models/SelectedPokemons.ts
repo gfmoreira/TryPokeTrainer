@@ -1,10 +1,12 @@
+import pokemonList from "./PokemonList";
+
 interface selectedPokemons {
-  firstPokemon: number | null,
-  secondPokemon: number | null,
-  thirdPokemon: number | null,
-  fourthPokemon: number | null,
-  fifthPokemon: number | null,
-  sixthPokemon: number | null
+  firstPokemon: pokemonList | undefined,
+  secondPokemon: pokemonList | undefined,
+  thirdPokemon: pokemonList | undefined,
+  fourthPokemon: pokemonList | undefined,
+  fifthPokemon: pokemonList | undefined,
+  sixthPokemon: pokemonList | undefined
 }
 
 export default selectedPokemons;
