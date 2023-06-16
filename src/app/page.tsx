@@ -8,9 +8,17 @@ import { useState } from "react";
 export default function Home() {
   const [selected, setSelected] = useState();
   const [pokemonSelected, setPokemonSelected] = useState(emptyList);
+  const [character, setCharacter] = useState();
   return (
     <SelectedContext.Provider
-      value={{ pokemonSelected, setPokemonSelected, selected, setSelected }}
+      value={{
+        pokemonSelected,
+        setPokemonSelected,
+        selected,
+        setSelected,
+        character,
+        setCharacter,
+      }}
     >
       <div>
         <TrainerInfo />

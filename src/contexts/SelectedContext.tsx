@@ -16,6 +16,8 @@ export type ContextProps = {
   setPokemonSelected?: any;
   selected?: any;
   setSelected?: any;
+  character?: any;
+  setCharacter?: any;
 };
 
 export const SelectedContext = createContext<ContextProps>({

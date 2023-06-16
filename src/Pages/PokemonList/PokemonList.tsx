@@ -48,19 +48,21 @@ export default function PokemonList() {
           {pokemonOfRegion.map((inside: pokemonList) => {
             return (
               <div key={`context-poke-${inside.id}`}>
-                <div
-                  key={`poke_${inside.id}`}
-                  className="rounded-md shadow-md bg-gray-300 w-32 h-32 flex items-center justify-center"
+                <button
+                  className="w-32 h-32"
+                  onClick={() => updateList(`${selected}`, inside)}
                 >
-                  <Image
-                    src={inside.url || ""}
-                    alt="Bulbasaur animeted gif"
-                    width={inside.width || 0}
-                    height={inside.height || 0}
-                  />
-                </div>
-                <button onClick={() => updateList(`${selected}`, inside)}>
-                  Add
+                  <div
+                    key={`poke_${inside.id}`}
+                    className="rounded-md shadow-md bg-gray-300 w-32 h-32 flex items-center justify-center"
+                  >
+                    <Image
+                      src={inside.url || ""}
+                      alt="Bulbasaur animeted gif"
+                      width={inside.width || 0}
+                      height={inside.height || 0}
+                    />
+                  </div>
                 </button>
               </div>
             );
