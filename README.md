@@ -62,6 +62,4 @@ TryPokémonTrainer/
 
 ![alt text](./src/app//assets/img/lastResults06162023.gif)
 
-```bash
 At the moment we still have few Pokémon added, soon we will have more to the list and improvements, remembering that the code is in a development branch.
-```
