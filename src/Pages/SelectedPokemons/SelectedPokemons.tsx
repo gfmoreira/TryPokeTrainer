@@ -3,15 +3,18 @@ import Image from "next/image";
 import { useSelectedContext } from "@/contexts/SelectedContext";
 
 export default function SelectedPokemons() {
-  const { pokemonSelected, setSelected } = useSelectedContext();
-
+  const { pokemonSelected, setSelected, selected } = useSelectedContext();
+  let borderColor = selected;
+  console.log(selected, borderColor);
   return (
     <div className="flex items-center justify-center flex-col">
       <section className="mt-2 grid grid-cols-6 gap-6 ">
         <div>
           <div
             key={`first-pokemon`}
-            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+            className={`rounded-md shadow-md bg-gray-300 w-36 h-36 flex items-center justify-center ${
+              borderColor == "firstPokemon" ? "border-2 border-purple-700" : ""
+            }`}
           >
             <Image
               src={pokemonSelected?.firstPokemon?.url || ""}
@@ -30,7 +33,9 @@ export default function SelectedPokemons() {
         <div>
           <div
             key={`second-pokemon`}
-            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+            className={`rounded-md shadow-md bg-gray-300 w-36 h-36 flex items-center justify-center ${
+              borderColor == "secondPokemon" ? "border-2 border-purple-700" : ""
+            }`}
           >
             <Image
               src={pokemonSelected?.secondPokemon?.url || ""}
@@ -49,7 +54,9 @@ export default function SelectedPokemons() {
         <div>
           <div
             key={`third-pokemon`}
-            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+            className={`rounded-md shadow-md bg-gray-300 w-36 h-36 flex items-center justify-center ${
+              borderColor == "thirdPokemon" ? "border-2 border-purple-700" : ""
+            }`}
           >
             <Image
               src={pokemonSelected?.thirdPokemon?.url || ""}
@@ -68,7 +75,9 @@ export default function SelectedPokemons() {
         <div>
           <div
             key={`fourth-pokemon`}
-            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+            className={`rounded-md shadow-md bg-gray-300 w-36 h-36 flex items-center justify-center ${
+              borderColor == "fourthPokemon" ? "border-2 border-purple-700" : ""
+            }`}
           >
             <Image
               src={pokemonSelected?.fourthPokemon?.url || ""}
@@ -87,7 +96,9 @@ export default function SelectedPokemons() {
         <div>
           <div
             key={`fifth-pokemon`}
-            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+            className={`rounded-md shadow-md bg-gray-300 w-36 h-36 flex items-center justify-center ${
+              borderColor == "fifthPokemon" ? "border-2 border-purple-700" : ""
+            }`}
           >
             <Image
               src={pokemonSelected?.fifthPokemon?.url || ""}
@@ -106,7 +117,9 @@ export default function SelectedPokemons() {
         <div>
           <div
             key={`sixth-pokemon`}
-            className="rounded-md shadow-md bg-gray-300 w-24 h-24 flex items-center justify-center "
+            className={`rounded-md shadow-md bg-gray-300 w-36 h-36 flex items-center justify-center ${
+              borderColor == "sixthPokemon" ? "border-2 border-purple-700" : ""
+            }`}
           >
             <Image
               src={pokemonSelected?.sixthPokemon?.url || ""}
